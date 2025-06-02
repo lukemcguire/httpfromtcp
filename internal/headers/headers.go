@@ -58,6 +58,11 @@ func (h Headers) Set(key, value string) {
 	h[key] = value
 }
 
+func (h Headers) Get(key string) (value string, exists bool) {
+	value, exists = h[strings.ToLower(key)]
+	return value, exists
+}
+
 func (h Headers) Contains(key string) bool {
 	_, ok := h[key]
 	return ok
